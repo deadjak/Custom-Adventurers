@@ -1,0 +1,12 @@
+Group,ID,Tuning Notes,Tier,Obscurity,Base Value,Tags,Prefab REF,Move Set,Heft,Trigger Game Effect,Active Traits,Passive Traits,Charges / Durability,Kind,Bone REF,Strike Game Effect,Projectile Speed,Ammo ID,Ammo Use,Cooldown,ActorBody REF,Crafting Recipe,Unique,Max Count
+Armor,patchOver_PCSkelBase,2,1,0,500,skeleton,pf-book-skull_buckle,,Light,,,Armor +1,,Armor,j_pelvis,,,,,,ab-skeleton-skelly02,,,
+Armor,patchOver_PCSkelLight,2,1,0,650,skeleton,pf-book-skull_buckle,,Light,,,"Speed +10, JumpModifier +15, ReducedStaminaSprint",,Armor,j_pelvis,,,,,,ab-skeleton-skelly09,,,
+Armor,patchOver_PCSkelMid,2,1,0,650,skeleton,pf-book-skull_buckle,,Light,,,"Armor +1, Sharpshooter",,Armor,j_pelvis,,,,,,ab-skeleton-skelly05,,,
+Armor,patchOver_PCSkelHeavy,2,2,0,800,skeleton,pf-book-skull_buckle,,Heavy,,,"Armor +2, AttackBonus +1, AttackBonus +1, HeftBonus +1",,Armor,j_pelvis,,,,,,ab-skeleton-skelly04,,,
+Armor,patchOver_PCSkelEnchanter,2,2,0,875,skeleton,pf-book-skull_buckle,,Medium,,,"Armor +1, ArcaneResist, Sharpshooter, Vampiric",,Armor,j_pelvis,,,,,,ab-skeleton-skelly01,,,
+Armor,patchOver_PCSkelBomber,2,2,0,875,skeleton,pf-book-skull_buckle,,Medium,,,"Armor +2, FireResist",,Armor,j_pelvis,,,,,,ab-skeleton-skelly03,,,
+Armor,patchOver_PCSkelFireBase,2,3,0,875,skeleton,pf-book-skull_buckle,,Medium,,,"Armor +2, FireResist",,Armor,j_pelvis,,,,,,ab-skeleton-skellyfire02,,,
+Armor,patchOver_PCSkelFireLight,2,3,0,875,skeleton,pf-book-skull_buckle,,Medium,,,"Armor +3, FireResist, Speed +20, JumpModifier +25, ReducedStaminaSprint, ReducedStaminaAttack",,Armor,j_pelvis,,,,,,ab-skeleton-skellyfire03,,,
+Armor,patchOver_PCSkelFireMid,2,3,0,875,skeleton,pf-book-skull_buckle,,Medium,,,"Armor +3, FireResist, BashResist, HeftBonus +1",,Armor,j_pelvis,,,,,,ab-skeleton-skellyfire05,,,
+Armor,patchOver_PCSkelFireHeavy,2,4,0,875,skeleton,pf-book-skull_buckle,,Heavy,,,"Armor +4, FireResist, BashResist, HeftBonus +2, ReducedStaminaAttack,  Immovable",,Armor,j_pelvis,,,,,,ab-skeleton-skellyfire04,,,
+Armor,patchOver_PCSkelFireEnchanter,2,4,0,875,skeleton,pf-book-skull_buckle,,Medium,,,"Armor +4, FireResist, ArcaneResist, Sharpshooter, Vampiric, MagicImmune",,Armor,j_pelvis,,,,,,ab-skeleton-skellyfire01,,,

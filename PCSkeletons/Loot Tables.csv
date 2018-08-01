@@ -1,0 +1,16 @@
+ID,Entry,Weight,Tag Multiplier
+patchOver_PCSkelBaseEquipment,"CrackedLongsword, SmallShield, Food_Standard, $StartingRecipeBase, $StartingRecipeAlts, $ColorSetStarter",1,
+patchOver_ArmorOne,[skip],,
+,patchAppend_PCSkelLight,1,skeleton
+,patchAppend_PCSkelMid,1,skeleton
+patchOver_ArmorTwo,[skip],,
+,patchAppend_PCSkelHeavy,1,skeleton
+,patchAppend_PCSkelEnchanter,1,skeleton
+,patchAppend_PCSkelBomber,1,skeleton
+patchOver_ArmorThree,[skip],,
+,patchAppend_PCSkelFireBase,1,skeleton
+,patchAppend_PCSkelFireLight,1,skeleton
+,patchAppend_PCSkelFireMid,1,skeleton
+patchOver_ArmorFour,[skip],,
+,patchAppend_PCSkelFireHeavy,1,skeleton
+,patchAppend_PCSkelFireEnchanter,1,skeleton
