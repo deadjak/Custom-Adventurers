@@ -7,15 +7,19 @@ using System.Threading.Tasks;
 using System.Collections;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
+using System.Text.RegularExpressions;
 using UnityEngine;
 using AbraxisToolset;
 using Necro;
 using HBS;
+using HBS.Collections;
+using HBS.Data;
+using HBS.Logging;
+using HBS.Math;
 using HBS.Text;
 using Partiality.Modloader;
 using MonoMod;
 using MonoMod.ModInterop;
-using HBS.Collections;
 using Necro.Data.Stats;
 
 namespace CustomAdventurers
@@ -55,7 +59,8 @@ namespace CustomAdventurers
 
         public void GetCharacterId()
         {
-            this.NewAIDs = System.IO.File.ReadAllLines(Directory.GetParent(Application.dataPath).FullName + "/Mods/Adventurers.txt");
+            DataManager man = new DataManager();
+            this.NewAIDs = man.GetSelectableCharacterIds();
         }
     }
     [MonoMod.MonoModPatch("global::Necro.ItemDef")]
@@ -63,24 +68,25 @@ namespace CustomAdventurers
     {
         [MonoMod.MonoModIgnore]
         private string actorBodyRef;
-        public string AID3 = null;
         public string GetFullActorBodyRef(ActorBody.Gender gender)
         {
-            AID3 = null;
-            if (ThirdPersonCameraControl.HasInstance)
-            {
-                AID3 = ThirdPersonCameraControl.Instance.CharacterActor.actorDefId;
-                if (AID3.Contains("PC-"))
-                {
-                    gender = ActorBody.Gender.Unknown;
-                }
-            }
             if (string.IsNullOrEmpty(this.actorBodyRef))
             {
                 return string.Empty;
             }
             if (gender == ActorBody.Gender.Male)
             {
+                try
+                {
+                    if (ThirdPersonCameraControl.HasInstance && ThirdPersonCameraControl.Instance.CharacterActor.actorDefId.Contains("PC-"))
+                    {
+                        return this.actorBodyRef;
+                    }
+                }
+                catch
+                {
+                    return this.actorBodyRef + "_male";
+                }
                 return this.actorBodyRef + "_male";
             }
             if (gender == ActorBody.Gender.Female)
@@ -88,6 +94,26 @@ namespace CustomAdventurers
                 return this.actorBodyRef + "_female";
             }
             return this.actorBodyRef;
+        }
+    }
+    [MonoMod.MonoModPatch("global::Necro.DataManager")]
+    class patch_DataManager
+    {
+        public string[] GetSelectableCharacterIds()
+        {          
+            List<string> list = new List<string>(LazySingletonBehavior<DataManager>.Instance.ActorDefs.Count);
+            foreach (KeyValuePair<string, ActorDef> keyValuePair in LazySingletonBehavior<DataManager>.Instance.ActorDefs)
+            {
+                if (DataManager.IsSelectableActor(keyValuePair.Value))
+                {
+                    list.Add(keyValuePair.Key);
+                }
+            }
+            return list.ToArray();
+        }
+        public static bool IsSelectableActor(ActorDef def)
+        {
+            return def.tags.Contains("pc");
         }
     }
 }
